@@ -1,15 +1,9 @@
-/**
-* Template Name: iPortfolio
-* Updated: Mar 10 2024 with Bootstrap v5.3.3
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 (function() {
   "use strict";
 
   /**
-   * Easy selector helper function
+   * Função auxiliar de seleção fácil
    */
   const select = (el, all = false) => {
     el = el.trim()
@@ -21,7 +15,7 @@
   }
 
   /**
-   * Easy event listener function
+   * Função de ouvinte de eventos fácil
    */
   const on = (type, el, listener, all = false) => {
     let selectEl = select(el, all)
@@ -35,14 +29,14 @@
   }
 
   /**
-   * Easy on scroll event listener 
+   * evento fácil de rolar
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
 
   /**
-   * Navbar links active state on scroll
+   * A barra de navegação vincula o estado ativo na rolagem
    */
   let navbarlinks = select('#navbar .scrollto', true)
   const navbarlinksActive = () => {
@@ -62,7 +56,7 @@
   onscroll(document, navbarlinksActive)
 
   /**
-   * Scrolls to an element with header offset
+   *  Rola para um elemento com deslocamento de cabeçalho
    */
   const scrollto = (el) => {
     let elementPos = select(el).offsetTop
@@ -73,7 +67,7 @@
   }
 
   /**
-   * Back to top button
+   * Botão voltar ao topo
    */
   let backtotop = select('.back-to-top')
   if (backtotop) {
@@ -89,7 +83,7 @@
   }
 
   /**
-   * Mobile nav toggle
+   * Alternar navegação móvel
    */
   on('click', '.mobile-nav-toggle', function(e) {
     select('body').classList.toggle('mobile-nav-active')
@@ -98,7 +92,7 @@
   })
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Rolar com deslocamento em links com nome de classe .scrollto
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -116,7 +110,7 @@
   }, true)
 
   /**
-   * Scroll with ofset on page load with hash links in the url
+   * Rolar com deslocamento no carregamento da página com links hash no URL
    */
   window.addEventListener('load', () => {
     if (window.location.hash) {
@@ -127,7 +121,7 @@
   });
 
   /**
-   * Hero type effect
+   * Efeito de tipo Class eu 
    */
   const typed = select('.typed')
   if (typed) {
@@ -143,7 +137,7 @@
   }
 
   /**
-   * Skills animation
+   * Animação de habilidades
    */
   let skilsContent = select('.skills-content');
   if (skilsContent) {
@@ -159,91 +153,14 @@
     })
   }
 
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
-      });
 
-      let portfolioFilters = select('#portfolio-flters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
 
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
-    }
 
-  });
+
 
   /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
-
-  /**
-   * Animation on scroll
+   *Animação na rolagem
    */
   window.addEventListener('load', () => {
     AOS.init({
