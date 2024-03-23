@@ -20,7 +20,7 @@
   $contato->smtp = array(
     'host' => 'smtp.gmail.com',
     'username' => 'thiagosante@gmail.com',
-    'password' => 'Zpw@5rk@1988252125',
+    'password' => '',
     'port' => '587'
   );
 
